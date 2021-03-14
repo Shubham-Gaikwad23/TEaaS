@@ -3,23 +3,23 @@ import org.coep.*
 
 node {
 	stages {
-		stage 'Checkout SCM' {
+		stage('Checkout SCM') {
 			echo 'Checking out SCM'
 		}
-		stage 'Build' {
+		stage('Build') {
 			echo 'Compiling'
 			echo 'Building'
 		}
-		stage 'Run regression test' {
+		stage('Run regression test') {
 			echo 'Running all tests'
 		}
-		stage 'Publish test results' {
+		stage('Publish test results') {
 			echo 'Publishing test results'
 		}
-		stage 'Clean up' {
+		stage('Clean up') {
 			echo 'Clearing workspace'
 		}
-		stage 'Send Email' {
+		stage('Send Email') {
 			echo 'Sending test report via email'
 		}
 	}
