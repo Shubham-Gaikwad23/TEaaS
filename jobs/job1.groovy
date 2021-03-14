@@ -71,10 +71,6 @@ Caused by: org.xml.sax.SAXParseException; lineNumber: 76; columnNumber: 67; Attr
 	}
 	stage('Send Email') {
 		echo 'Sending test report via email'
-
-		emailext body: '''There is a failure in testsuite please check the build
-
-job link: http://desktop-l5t987d.local:8080/job/Main/job/main_job/
-report link: http://desktop-l5t987d.local:8080/job/Main/job/main_job/12/testReport/''', subject: 'Failure in testsute test_main1', to: 'sdg9552273694@gmail.com'
+		emailext to: 'sdg9552273694@gmail.com'
 	}
 }
