@@ -14,14 +14,7 @@ node {
 	}
 	stage('Publish test results') {
 		echo 'Publishing test results'
-		//httpRequest consoleLogResponseBody: true, ignoreSslErrors: true, outputFile: 'test_results.xml', responseHandle: 'NONE', url: 'https://gist.github.com/n1k0/4332371', wrapAsMultipart: false
-		writeFile file: 'test_results.xml', text: '''<testsuite tests="3">
-    <testcase classname="foo1" name="ASuccessfulTest"/>
-    <testcase classname="foo2" name="AnotherSuccessfulTest"/>
-    <testcase classname="foo3" name="AFailingTest">
-        <failure type="NotEnoughFoo"> details about failure </failure>
-    </testcase>
-</testsuite>'''
+		//httpRequest consoleLogResponseBody: true, ignoreSslErrors: true, outputFile: 'test_results.xml', responseHandle: 'NONE', url: 'https://gist.github.com/Shubham-Gaikwad23/044ffe0f4b3a62797e21fd4779d0437a', wrapAsMultipart: false
 		junit '**test_results.xml'
 	}
 	stage('Clean up') {
@@ -30,4 +23,14 @@ node {
 	stage('Send Email') {
 		echo 'Sending test report via email'
 	}
+
+	/**
+	 writeFile file: 'test_results.xml', text: '''<testsuite tests="3">
+	 <testcase classname="foo1" name="ASuccessfulTest"/>
+	 <testcase classname="foo2" name="AnotherSuccessfulTest"/>
+	 <testcase classname="foo3" name="AFailingTest">
+	 <failure type="NotEnoughFoo"> details about failure </failure>
+	 </testcase>
+	 </testsuite>'''
+	 */
 }
