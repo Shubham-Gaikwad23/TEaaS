@@ -14,7 +14,7 @@ node {
 	}
 	stage('Publish test results') {
 		echo 'Publishing test results'
-		//httpRequest consoleLogResponseBody: true, ignoreSslErrors: true, outputFile: 'test_results.xml', responseHandle: 'NONE', url: 'https://gist.github.com/Shubham-Gaikwad23/044ffe0f4b3a62797e21fd4779d0437a', wrapAsMultipart: false
+		httpRequest consoleLogResponseBody: true, ignoreSslErrors: true, outputFile: 'test_results.xml', responseHandle: 'NONE', url: 'https://gist.github.com/Shubham-Gaikwad23/044ffe0f4b3a62797e21fd4779d0437a', wrapAsMultipart: false
 		junit '**test_results.xml'
 	}
 	stage('Clean up') {
