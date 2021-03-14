@@ -1,6 +1,8 @@
 @Library('TEaaS')
 import org.coep.*
 
+def stages = new Stages()
+
 node {
 	stage('Checkout SCM') {
 		echo 'Checking out SCM'
@@ -14,6 +16,7 @@ node {
 	}
 	stage('Publish test results') {
 		echo 'Publishing test results'
+		stages.publishTestResults()
 	}
 	stage('Clean up') {
 		echo 'Clearing workspace'
