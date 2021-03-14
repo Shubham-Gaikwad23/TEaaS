@@ -71,6 +71,8 @@ Caused by: org.xml.sax.SAXParseException; lineNumber: 76; columnNumber: 67; Attr
 	}
 	stage('Send Email') {
 		echo 'Sending test report via email'
-		emailext to: 'sdg9552273694@gmail.com'
+		emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
+				subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+				to: 'sdg9552273694@gmail.com'
 	}
 }
